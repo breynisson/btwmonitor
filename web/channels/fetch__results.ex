@@ -9,7 +9,6 @@ defmodule Fetch.Results do
       resvalue = find_element(:class, "first-place")
                  |> visible_text()
                  |> String.split(" ")
-#                 |> Enum.at(6)
 
 
       bs = byte_size("1.\n")
