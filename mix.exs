@@ -17,7 +17,7 @@ defmodule HivMonitor.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {HivMonitor, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :httpoison, :hound]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :httpoison, :hound, :bamboo]]
   end
 
   # Specifies which paths to compile per environment.
@@ -36,6 +36,7 @@ defmodule HivMonitor.Mixfile do
      {:cowboy, "~> 1.0"},
      {:httpoison, "~> 0.11.2"},
      {:floki, "~> 0.17"},
-     { :hound, "~> 1.0.3" }]
+     { :hound, "~> 1.0.3" },
+     {:bamboo, "~> 0.8"}]
   end
 end
