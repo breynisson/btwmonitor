@@ -6,7 +6,7 @@
     <h3 class="status">
     <div class="row justify-content-md-center">
         <div class="col-md-4 col-lg-offset-2"><%= @firstplace_team %></div>
-        <div class="col-md-4" style="text-align: right"><%= @firstplace_km %></div>
+        <div class="col-md-4" style="text-align: right"><%= @firstplace_km %> km</div>
     </div>
     </h3>
 </div>
