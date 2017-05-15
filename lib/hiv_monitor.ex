@@ -11,7 +11,7 @@ defmodule HivMonitor do
       # Start the endpoint when the application starts
       supervisor(HivMonitor.Endpoint, []),
       # Start your own worker by calling: HivMonitor.Worker.start_link(arg1, arg2, arg3)
-      # worker(HivMonitor.Worker, [arg1, arg2, arg3]),
+      worker(HivMonitor.Worker, []),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
