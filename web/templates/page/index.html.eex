@@ -3,11 +3,19 @@
   <p class="lead">Who is leading the km competion?</p>
 </div>
 <div class="container-fluid">
-    <h3 class="status">
+    <h3 class="firstplace">
     <div class="row justify-content-md-center">
-        <div class="col-md-4 col-lg-offset-2"><%= @firstplace_team %></div>
+        <div class="col-md-2">1.</div>
+        <div class="col-md-4"><%= @firstplace_team %></div>
         <div class="col-md-4" style="text-align: right"><%= @firstplace_km %> km</div>
     </div>
+    </h3>
+    <h3 class="secondplace">
+        <div class="row justify-content-md-center">
+            <div class="col-md-2">2.</div>
+            <div class="col-md-4"><%= @secondplace_team %></div>
+            <div class="col-md-4" style="text-align: right"><%= @secondplace_km %> km</div>
+        </div>
     </h3>
 </div>
 
