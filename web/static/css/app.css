@@ -1,4 +1,7 @@
 /* This file is for your main application css. */
-.status {
+.firstplace {
     color: #449d44;
+}
+.secondplace {
+    color: #423b9d;
 }

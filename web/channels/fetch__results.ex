@@ -22,5 +22,23 @@ defmodule Fetch.Results do
       res = %{:name => team_name, :km_value => km}
       res
   end
+
+  def fetch_secondplace_status do
+     Hound.start_session
+
+     navigate_to("http://hjoladivinnuna.is/stadan/kilometrakeppni")
+     trelements = find_element(:class, "table-responsive")
+                  |> find_all_within_element(:tag, "tr")
+
+
+     secondplace = Enum.at(trelements, 2) |> visible_text() |> String.split(" ")
+     team_name = Enum.at(secondplace, 1) <> " "<> Enum.at(secondplace, 2)
+     km = Enum.at(secondplace, 7)
+
+     Hound.end_session
+
+     res = %{:name => team_name, :km_value => km}
+     res
+  end
   
 end

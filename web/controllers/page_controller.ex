@@ -5,6 +5,9 @@ defmodule HivMonitor.PageController do
 
   def index(conn, _params) do
     res = Results.fetch_firstplace_status()
-    render(conn, "index.html",firstplace_team: res[:name], firstplace_km: res[:km_value])
+    sec = Results.fetch_secondplace_status()
+    render(conn, "index.html",
+    firstplace_team: res[:name], firstplace_km: res[:km_value],
+    secondplace_team: sec[:name], secondplace_km: sec[:km_value])
   end
 end
