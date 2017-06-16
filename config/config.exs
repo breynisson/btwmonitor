@@ -30,5 +30,5 @@ config :hound, driver: "phantomjs"
 # Configures the MailGun setup
 config :hiv_monitor, HivMonitor.Mailer,
   adapter: Bamboo.MailgunAdapter,
-  api_key: "key-f3a254c8ed44ea42445d6583ebb594f5",
-  domain: "sandboxceff553e43ed43e88033432300ccdd75.mailgun.org"
+  api_key: "secret-key",
+  domain: "mailgun-domain"
