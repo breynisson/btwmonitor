@@ -7,17 +7,26 @@ defmodule HivMonitor.Worker do
   end
 
   def init(state) do
-    state = fetch_firstplace_status()
+    first = fetch_firstplace_status()
+    second = fetch_secondplace_status()
+    state = [first, second]
     schedule_work() # Schedule work to be performed at some point
     {:ok, state}
   end
 
   def handle_info(:work, state) do
 
-    res = fetch_firstplace_status()
+    first = fetch_firstplace_status()
+    second = fetch_secondplace_status()
+    res = [first, second]
 
-    unless Map.equal?(state, res) do
-      HivMonitor.Emails.status_email(res, state) |> HivMonitor.Mailer.deliver_now
+    unless Map.equal?((Enum.at(state, 0)), (Enum.at(res, 0))) do
+      HivMonitor.Emails.status_email(Enum.at(res, 0), Enum.at(state, 0)) |> HivMonitor.Mailer.deliver_now
+      IO.puts((DateTime.utc_now() |> DateTime.to_iso8601) <> ": " <> "Email Sent")
+    end
+
+    unless Map.equal?((Enum.at(state, 1)), (Enum.at(res, 1))) do
+      HivMonitor.Emails.status_email_secondplace(Enum.at(res, 1), Enum.at(state, 1)) |> HivMonitor.Mailer.deliver_now
       IO.puts((DateTime.utc_now() |> DateTime.to_iso8601) <> ": " <> "Email Sent")
     end
 
@@ -49,5 +58,24 @@ defmodule HivMonitor.Worker do
 
       res = %{:name => team_name, :km_value => km}
       res
+  end
+
+
+  defp fetch_secondplace_status do
+     Hound.start_session
+
+     navigate_to("http://hjoladivinnuna.is/stadan/kilometrakeppni")
+     trelements = find_element(:class, "table-responsive")
+                  |> find_all_within_element(:tag, "tr")
+
+
+     secondplace = Enum.at(trelements, 2) |> visible_text() |> String.split(" ")
+     team_name = Enum.at(secondplace, 1) <> " "<> Enum.at(secondplace, 2)
+     km = Enum.at(secondplace, 7)
+
+     Hound.end_session
+
+     res = %{:name => team_name, :km_value => km}
+     res
   end
 end
