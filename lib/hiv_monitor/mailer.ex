@@ -30,7 +30,7 @@ defmodule HivMonitor.Emails do
 
 
     new_email()
-    |> to(["bjorgvin.reynisson@gmail.com", "esth@ccpgames.com", "snorri.sturluson@ccpgames.com"])
+    |> to(["bjorgvin.reynisson@gmail.com"])
     |> from("postmaster@sandboxceff553e43ed43e88033432300ccdd75.mailgun.org")
     |> subject("Hjolad i Vinnuna: Update on 1. place km.")
     |> text_body("You can check the updated status at the hjolad i vinnuna page!
