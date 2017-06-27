@@ -1,6 +1,6 @@
-# HivMonitor (Hjólað í Vinnuna Monitor)
+# BtWMonitor (Hjólað í Vinnuna Monitor)
 
-HivMonitor is a small Elixir/Phoenix application that monitors the first
+BtWMonitor is a small Elixir/Phoenix application that monitors the first
 place in the ["Hjólað í vinnuna" distance competition.] [hiv-results]
 
 The application uses [Hound][hound] and [Phantomjs][phantomjs] to
