@@ -1,7 +1,7 @@
 # BtWMonitor (Hjólað í Vinnuna Monitor)
 
 BtWMonitor is a small Elixir/Phoenix application that monitors the first
-place in the ["Hjólað í vinnuna" distance competition.] [hiv-results]
+place in the ["Hjólað í vinnuna" (Bike-to-work) distance competition][hiv-results].
 
 The application uses [Hound][hound] and [Phantomjs][phantomjs] to
 periodically scrape the current status. That result is compared to the 
